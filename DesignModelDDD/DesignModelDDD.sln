@@ -17,12 +17,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{8FA8984F-F9E4-4E9C-9320-CC4D3DCAD000}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignModelDDD.MVC", "DesignModelDDD.MVC\DesignModelDDD.MVC.csproj", "{36AF4773-DC7E-4631-87D1-BD4F319F2CE5}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36AF4773-DC7E-4631-87D1-BD4F319F2CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AF4773-DC7E-4631-87D1-BD4F319F2CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AF4773-DC7E-4631-87D1-BD4F319F2CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AF4773-DC7E-4631-87D1-BD4F319F2CE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CCA9A65F-ED8E-4382-BC59-8AF71DFB33AC} = {5CF46453-A8D7-4B7F-816D-159542B7607C}
 		{8FA8984F-F9E4-4E9C-9320-CC4D3DCAD000} = {5CF46453-A8D7-4B7F-816D-159542B7607C}
+		{36AF4773-DC7E-4631-87D1-BD4F319F2CE5} = {1FE793D3-564E-41BA-B8E6-D016E8A3B20E}
 	EndGlobalSection
 EndGlobal
