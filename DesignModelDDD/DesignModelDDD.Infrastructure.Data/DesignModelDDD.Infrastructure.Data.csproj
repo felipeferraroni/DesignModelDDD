@@ -35,10 +35,11 @@
     <Compile Include="EntityConfig\ProdutoConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ClienteRepository.cs" />
+    <Compile Include="Repositories\ProdutoRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DesignModelDDD.Domain\DesignModelDDD.Domain.csproj">
       <Project>{1fb16c23-5564-41d4-85cc-218ad12f3dbb}</Project>
