@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using DesignModelDDD.Domain.Entities;
+using DesignModelDDD.MVC.ViewModels;
 
 namespace DesignModelDDD.MVC.AutoMapper
 {
-    class ViewModelToDomainMappingProfile
+    class ViewModelToDomainMappingProfile : Profile
     {
+        public new string ProfileName { get; } = "ViewModelToDomainMapping";
+
+        protected override void Configure()
+        {
+            Mapper.CreateMap<Cliente, ClienteViewModel>();
+            Mapper.CreateMap<Produto, ProdutoViewModel>();
+        }
     }
 }
