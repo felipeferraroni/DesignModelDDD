@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using DesignModelDDD.Domain.Interfaces;
+using DesignModelDDD.Domain.Interfaces.Repositories;
 using DesignModelDDD.Infrastructure.Data.Contexto;
 
 namespace DesignModelDDD.Infrastructure.Data.Repositories

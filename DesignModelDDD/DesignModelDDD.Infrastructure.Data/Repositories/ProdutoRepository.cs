@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DesignModelDDD.Domain.Entities;
-using DesignModelDDD.Domain.Interfaces;
+using DesignModelDDD.Domain.Interfaces.Repositories;
 
 namespace DesignModelDDD.Infrastructure.Data.Repositories
 {
