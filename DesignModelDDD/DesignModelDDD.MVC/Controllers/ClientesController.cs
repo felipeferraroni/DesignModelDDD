@@ -1,30 +1,43 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+
 using System.Web.Mvc;
 using AutoMapper;
+using DesignModelDDD.Application.Interface;
 using DesignModelDDD.Domain.Entities;
-using DesignModelDDD.Domain.Interfaces;
-using DesignModelDDD.Infrastructure.Data.Repositories;
 using DesignModelDDD.MVC.ViewModels;
 
 namespace DesignModelDDD.MVC.Controllers
 {
     public class ClientesController : Controller
     {
-        private readonly ClienteRepository _clienteRepository = new ClienteRepository();
+        private readonly IClienteAppService _clienteAppService;
+
+        public ClientesController(IClienteAppService clienteAppService)
+        {
+            _clienteAppService = clienteAppService;
+        }
+
         // GET: Clientes
         public ActionResult Index()
         {
-            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteRepository.GetAll());
+            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteAppService.GetAll());
+            return View(clienteViewModel);
+        }
+
+        // GET: Clientes/Especiais
+        public ActionResult Especiais()
+        {
+            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteAppService.OnterClientesEspeciais());
             return View(clienteViewModel);
         }
 
         // GET: Clientes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var cliente = _clienteAppService.GetById(id);
+            var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+            return View(clienteViewModel);
         }
 
         // GET: Clientes/Create
@@ -41,7 +54,7 @@ namespace DesignModelDDD.MVC.Controllers
             if (ModelState.IsValid)
             {
                 var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
-                _clienteRepository.Add(clienteDomain);
+                _clienteAppService.Add(clienteDomain);
                 return RedirectToAction("Index");
             }
 
@@ -51,45 +64,44 @@ namespace DesignModelDDD.MVC.Controllers
         // GET: Clientes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var cliente = _clienteAppService.GetById(id);
+            var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+            return View(clienteViewModel);
         }
 
         // POST: Clientes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ClienteViewModel cliente)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
+                _clienteAppService.Update(clienteDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(cliente);
         }
 
         // GET: Clientes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var cliente = _clienteAppService.GetById(id);
+            var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+            return View(clienteViewModel);
         }
 
         // POST: Clientes/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var cliente = _clienteAppService.GetById(id);
+            _clienteAppService.Remove(cliente);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }
