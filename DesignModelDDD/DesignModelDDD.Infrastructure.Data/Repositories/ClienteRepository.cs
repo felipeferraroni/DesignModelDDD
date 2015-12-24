@@ -1,5 +1,4 @@
 ﻿using DesignModelDDD.Domain.Entities;
-using DesignModelDDD.Domain.Interfaces;
 using DesignModelDDD.Domain.Interfaces.Repositories;
 
 namespace DesignModelDDD.Infrastructure.Data.Repositories

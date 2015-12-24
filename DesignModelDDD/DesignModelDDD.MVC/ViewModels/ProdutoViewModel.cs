@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using DesignModelDDD.Domain.Entities;
 
 namespace DesignModelDDD.MVC.ViewModels
 {

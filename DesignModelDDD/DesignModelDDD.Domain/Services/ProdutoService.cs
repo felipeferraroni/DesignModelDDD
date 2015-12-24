@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DesignModelDDD.Domain.Entities;
 using DesignModelDDD.Domain.Interfaces.Repositories;
 using DesignModelDDD.Domain.Interfaces.Services;
